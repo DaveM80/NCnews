@@ -8,7 +8,7 @@ flex-direction: row;
 justify-content: space-around;
 
 @media only screen and (expressions) {
-  CSS-Code;
+  /* CSS-Code;"" */
 }
 div.orderDirRadio{
     display:flex;
