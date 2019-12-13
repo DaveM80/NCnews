@@ -1,26 +1,30 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from "react";
+import { Router } from "@reach/router";
+import "./App.css";
+import  TopNav  from "./components/TopNav";
+import ArticlesPage  from "./components/ArticlesPage";
+import SingleArticlePage from "./components/SingleArticlePage";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+
+class App extends Component {
+
+  state = { username: "tickle122" };
+
+
+  render() {
+    return (
+      <div className="App">
+
+        <TopNav username={this.state.username} />
+        <Router primary={false}>
+          <ArticlesPage path="/" username={this.state.username}/>
+          <SingleArticlePage path="/articles/:article_id" username={this.state.username}/>
+          <ArticlesPage path="/:topic" username={this.state.username}/>
+        </Router>
+      </div>
+    );
+  }
 }
 
 export default App;
