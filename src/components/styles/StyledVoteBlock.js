@@ -5,7 +5,7 @@ export const StyledVoteBlock = styled.div`
   display: flex;
   justify-content: space-around;
   flex-direction: ${props => props.dir};
-  /* max-height:${props => props.dir === "column" ? "70%": ""}; */
+  /* max-height:${props => props.dir === "column-reverse" ? "70%": ""}; */
   /* max-width:${props => props.dir === "row" ? "50%": ""}; */
 
 
@@ -27,8 +27,8 @@ export const StyledVoteBlock = styled.div`
     font-weight:bolder;
     }
     p{
-      color:${props =>  props.votes<0 ? "#097bf4" :"hotpink"};
-      /* padding:${props => props.dir === "column" ? "0px 0px" : "0px 35px"}; */
+      color:${props =>  props.voteDiff>0 && "hotpink"};
+      color:${props =>  props.voteDiff<0 && "#097bf4"};
     }
 }
     div{

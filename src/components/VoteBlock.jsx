@@ -16,14 +16,19 @@ class VoteBlock extends Component {
   
   voteUpdater = voteValue => {
     this.setState(currentState => {
-      return {voteDiff: currentState.voteDiff + voteValue};
+      if(voteValue===this.state.voteDiff){
+        return {voteDiff: currentState.voteDiff - voteValue};
+      }else{
+        return {voteDiff: currentState.voteDiff + voteValue};
+      }
      });
   };
 
   render() {
     return (
-      <StyledVoteBlock dir={this.props.dir} votes={this.props.votes + this.state.voteDiff}>
-        <button onClick={()=>{
+      <StyledVoteBlock dir={this.props.dir} voteDiff={this.state.voteDiff}>
+        <button onClick={(event)=>{
+          console.dir(event.target.value);
            this.handleVote(-1)
         }}
         >

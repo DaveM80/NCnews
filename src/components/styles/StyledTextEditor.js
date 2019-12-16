@@ -3,6 +3,37 @@ import 'react-quill/dist/quill.snow.css';
 
 export const StyledTextEditor = styled.div`
 
+div.formActions{
+  display:flex;
+  flex-direction: row;
+  justify-content:space-around;
+  padding: 5%;
+button{
+    height:30px;
+    border-radius:5px;
+    border:none;
+    background :#097bf4; 
+    box-shadow: 0 0 5px #5b7587;
+    color: white;
+    text-shadow: 0 0 5px white;
+    font-size: 12px;
+    font-weight:bolder;
+}
+button.submitButton{
+  background :hotpink; 
+}
+button:disabled{
+    height:30px;
+    background :grey; 
+    text-shadow: 0 0 5px white;
+
+}
+
+
+}
+
+
+
 .ql-snow.ql-toolbar button:hover,
 .ql-snow .ql-toolbar button:hover,
 .ql-snow.ql-toolbar button:focus,

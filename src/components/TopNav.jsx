@@ -1,54 +1,41 @@
-
-import { Link } from "@reach/router";
-import { StyledTopNav } from "./styles/StyledTopNav";
-import React, { Component } from 'react';
-import FocusLock from 'react-focus-lock';
-import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
+import {Link} from "@reach/router";
+import {StyledTopNav} from "./styles/StyledTopNav";
+import React, {Component} from 'react';
+import * as api from "../api.js";
 
 
 class TopNav extends Component {
 
-  state={isClosed:true}
+    state = {
+        topics: []
+    }
 
-  toggleNav = ()=> {
-    this.setState((currentState)=>{
-      return {isClosed : !currentState.isClosed}
-    })
-  }
-  
-  
-  render() {
-    this.state.isClosed ? enableBodyScroll():disableBodyScroll();
-    return (
-      <div>
-      <button onClick={this.toggleNav}>{this.state.isClosed ? "Open" : "Close"}</button>
-      <FocusLock>
-      
-        
-      <StyledTopNav isClosed={this.state.isClosed} role="dialog">
-      <button onClick={this.toggleNav}>{this.state.isClosed ? "Open" : "Close"}</button>
-      <div>
-        <p>Logged in as: {this.props.username}</p>
-      </div>
-      <ul>
-      <li>
-          <Link to={"/"} onClick={this.toggleNav}>Home </Link>
-        </li>
-        <li>
-          <Link to={"/Coding"}onClick={this.toggleNav}>Coding</Link>
-        </li>
-        <li>
-          <Link to={"/Cooking"}onClick={this.toggleNav}>Cooking</Link>
-        </li>
-        <li>
-          <Link to={"/Football"} onClick={this.toggleNav}>Football</Link>
-        </li>
-      </ul>
-    </StyledTopNav>
-    </FocusLock>
-    </div>
-    );
-  }
+    componentDidMount = () => {
+        api.getTopics().then(({data: {
+                topics
+            }}) => {
+            this.setState({topics})
+        });
+    };
+
+    render() {
+        return (
+            <StyledTopNav>
+                <Link to={"/"}
+                    href="#Home">Home</Link>
+                {
+                this.state.topics.map(topic => {
+                    const topicName = topic.slug[0].toUpperCase() + topic.slug.slice(1)
+                    return (
+                        <Link to={
+                            `/${topicName}`
+                        }>
+                            {topicName}</Link>
+                    )
+                })
+            } </StyledTopNav>
+        );
+    }
 }
 
 export default TopNav;

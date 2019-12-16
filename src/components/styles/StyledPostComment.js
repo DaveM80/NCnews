@@ -19,4 +19,5 @@ export const StyledPostComment= styled.div`
 
   height: 400px;
   max-height: 100%;
+
 `;
