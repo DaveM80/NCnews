@@ -11,7 +11,8 @@ width: 99vw;
 @media only screen and (min-width: 480px) {
     display:flex;
     flex-direction: row;
-    justify-content: flex-start;
+    justify-content: space-between;
+    max-width: 40%;
 }
 div.orderDirRadio{
     display:flex;

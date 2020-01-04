@@ -2,6 +2,7 @@ import ArticleList from "./ArticlesList";
 import React from "react";
 
 function ArticlesPage(props) {
+    console.log(props);
     return (
         <div>
             <h2>{

@@ -7,7 +7,7 @@ flex-direction: column;
 justify-content: center;
 padding-top:5%;
 @media only screen and (max-width: 600px) {
-    padding-top:30%;
+    padding-top:50%;
     padding-left: 0px;
   }
 `

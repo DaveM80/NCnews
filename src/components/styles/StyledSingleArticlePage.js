@@ -2,13 +2,13 @@ import styled from 'styled-components';
 
 
 export const StyledSingleArticlePage = styled.div`
-
 display:flex;
 flex-direction: column;
 justify-content: center;
 padding-top:10%;
-@media only screen and (max-width: 1250px) {
-    padding-top:40%;
+
+@media only screen and (max-width: 600px) {
+    padding-top:50%;
     padding-left: 0px;
   }
 img{

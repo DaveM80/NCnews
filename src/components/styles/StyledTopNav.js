@@ -8,9 +8,22 @@ export const StyledTopNav = styled.div`
   justify-content: space-around;
   width: 80vw;
   @media only screen and (max-width: 600px) {
+  display: flex;
+  flex-direction: column;
   width: 99vw;
-  padding-left:50%;
   overflow-y: scroll;
+  overflow-x: hidden; 
+  max-height: 5px;
+  padding-top: 100px;
+  ::-webkit-scrollbar {
+        -webkit-appearance: none;
+        width: 7px;
+    }
+    ::-webkit-scrollbar-thumb {
+        border-radius: 5px;
+        background-color: hotpink;
+        -webkit-box-shadow: 0 0 10px white;
+    }
   }
   a:link{
     border-radius:5px;
@@ -34,6 +47,7 @@ export const StyledTopNav = styled.div`
     text-decoration: none;
     color: white;
     text-shadow: 0 0 10px white;
-    transform: scale(1.3);
+    transform: scale(1.2);
+
   }
 `;

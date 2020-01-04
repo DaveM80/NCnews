@@ -8,14 +8,11 @@ class TextEditor extends Component {
         text: ""
     };
 
-    handleChange = this.handleChange.bind(this);
-
-
-    handleChange(value) {
-
+    handleChange = (value) => {
         this.setState({text: value});
     }
-    handleSubmit(event) {
+    handleSubmit = (event) => {
+        event.preventDefault()
         this.props.submit(event, this.state.text)
     }
 

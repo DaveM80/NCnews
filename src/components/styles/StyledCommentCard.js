@@ -4,19 +4,21 @@ export const StyledCommentCard = styled.li`
 
 display:flex;
 flex-direction: row;
-
+width: 90vw;
 list-style:none;
 box-shadow: 0px 0px 5px #5b7587;
 border-radius: 5px;
 margin: 2%;
-padding:5%;
-
+padding:2rem;
 div.commentHeader{
+    @media  only screen and (max-width: 480px)  {
+        width: 70vw;
+    }
+width: 80vw;
 display:flex;
 flex-direction: row; 
-align-items:center;
-align-content: center;
-justify-content:space-around;
+justify-content: space-between;
+
 margin: 0%;
 
 p{

@@ -24,7 +24,11 @@ class ArticlesList extends Component {
             }}) => {
             this.setState({articles, isLoading: false, error: null})
         }).catch(err => {
-            this.setState({error: err.response.data, isLoading: false})
+            if (err){
+                this.setState({error: err.response.data, isLoading: false})
+            }else{
+                this.setState({error: "That doesn't look right, try again", isLoading: false}) 
+            }
         });
     };
 

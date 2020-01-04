@@ -21,13 +21,13 @@ class TopNav extends Component {
     render() {
         return (
             <StyledTopNav>
-                <Link to={"/"}
-                    href="#Home">Home</Link>
+                <Link to={"/"}>Home</Link>
                 {
                 this.state.topics.map(topic => {
                     const topicName = topic.slug[0].toUpperCase() + topic.slug.slice(1)
                     return (
                         <Link to={
+                            
                             `/${topicName}`
                         }>
                             {topicName}</Link>
